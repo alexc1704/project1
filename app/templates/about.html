@@ -1,6 +1,13 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block main %}
-<h1 class="display-5 fw-bold">About</h1>
-<p>This webpage is about {{ name }}.</p>
+{% block title %}About | Project 1{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="fw-bold mb-3">About</h2>
+        <p>Welcome to Project 1 Real Estate, your trusted partner in finding the perfect property. Whether you're searching for a cozy apartment in the heart of the city or a spacious family home in a quiet neighbourhood, we are dedicated to making your property journey as smooth and stress-free as possible. With years of experience in the Jamaican real estate market, our team of professional realtors is committed to connecting buyers and sellers with the right opportunities at the right price. Your dream property is just a click away.</p>
+        <p>Built with Flask, PostgreSQL, Flask-WTF, Flask-SQLAlchemy, and Flask-Migrate.</p>
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Properties | Project 1{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-4">Properties</h2>
+
+{% if properties %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for prop in properties %}
+        <div class="col">
+            <div class="card h-100 shadow-sm property-card">
+                <img
+                    src="{{ url_for('main.uploaded_file', filename=prop.photo) }}"
+                    alt="{{ prop.title }}"
+                >
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">{{ prop.title }}</h5>
+                    <p class="text-muted small mb-1">
+                        <i class="bi bi-geo-alt"></i> {{ prop.location }}
+                    </p>
+                    <span class="badge-price">${{ "{:,.0f}".format(prop.price) }}</span>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('main.property_detail', propertyid=prop.id) }}">View Property</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="text-center py-5">
+        <p class="text-muted">No properties have been listed yet.</p>
+        <a href="{{ url_for('main.create_property') }}" class="btn btn-teal">Add the first one!</a>
+    </div>
+{% endif %}
+{% endblock %}
